@@ -38,7 +38,7 @@ header{
 }
 
 header figure{
-	max-width: 100%;
+	width: 100%;
 	max-height: 100%;
 	overflow: hidden;
 	position: absolute;
@@ -60,7 +60,7 @@ header figure:last-of-type{
 }
 
 header img{
-	max-width: 100%;
+	width: 100%;
 	animation:grande 40s linear infinite;
 }
 
@@ -68,10 +68,12 @@ header figcaption{
 	color: #fff;
 	position: absolute;
 	bottom: 5%;
-	margin-left: 2em;
 	padding: 1em;
-	background-color: rgba(50,50,50,0.7);
-	border-radius: 10px;
+	background-color: rgba(50,50,50,0.6);
+	text-shadow: 2px 2px 2px #000;
+	border-radius: 0 10px 10px 0; 
+	font-size: calc(10px + 1vw);
+	font-weight: bold;
 }
 
 @keyframes grande{
@@ -115,14 +117,20 @@ nav li a{
 	border-top: 1px solid #66c2ff;
 }
 
+nav li a:hover{
+	color: #1aa3ff;
+	background-color: rgba(255,255,255,0.8);
+}
+
 aside{
 	grid-area: aside;
-	height: 90vh;
+	height: 100vh;
 	position: sticky;
 	top: 3.5em;
 	color: #fff;
-	z-index: -2;
-	background: linear-gradient(to top ,#333, #999);
+	font-weight: bold;
+	text-shadow: 2px 2px 2px #222;
+	background: linear-gradient(to top ,#777, #bbb);
 }
 
 aside h3{
@@ -130,7 +138,7 @@ aside h3{
 	margin: 0;
 	padding: 1em 0;
 	text-align: center;
-	background: linear-gradient(to top ,#333, #999);
+	background: linear-gradient(to top ,#777, #bbb);
 }
 
 aside ul{
@@ -138,12 +146,28 @@ aside ul{
 	margin-top: 0;
 }
 
+aside a{
+	color: #fff;
+	text-decoration: none;
+	transition: 0.5s;
+	transition-property: padding;
+	padding: 2em 0.5em;
+	display: inline-block;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+aside a:hover{
+	padding-left: 2em;
+	color: #1aa3ff;
+	text-shadow: 1px 1px 1px #000;
+}
+
 aside li{
 	list-style: none;
-	padding: 2em 0.5em;
 	border-top: 2px solid #222;
 	border-bottom: 2px solid #ccc;
-	background: linear-gradient(to top ,#333, #999);
+	background: linear-gradient(to top ,#777, #bbb);
 
 }
 
@@ -196,7 +220,7 @@ main section article{
 	display: flex;
 	border: 5px solid #666;
 	margin: 1em;
-	background-color: #ffeecc;
+	background-color: #fff2e6;
 	filter: drop-shadow(0 5px 5px #666);
 }
 
@@ -228,30 +252,46 @@ main section h4{
 
 main>article h5{
 	font-size: calc(10px + 1vw);margin-bottom: 0;
-	padding-left: 1em;
+	padding: 1em 0 0 1em;
+	background-color: rgba(0,0,0,0.3);
+	color: #fff;
+	text-shadow: 2px 2px 2px #333;
 
 }
 
 main>article div{
 	display: flex;
 	background: linear-gradient(to top, rgba(0,0,0,0.8),rgba(0,0,0,0.3));
+	padding-bottom: 1em;
 }
 
 main>article div p{
 	flex:1;
-	border:5px solid #333;
-	background-color: #ccf2ff;
+	border:5px solid #ddd;
+	background-color: #e6f7ff;
 	border-radius: 10px;
 	margin: 1em;
 	padding: 1em;
 }
 
+main p{
+	font-size: 1vw;
+}
+
 footer{
 	grid-area: footer;
-	height: 30vh;
+	height: 20vh;
 	background-color: #4dc3ff;
 	border-top: 2px solid #666;
-	color: #333;
+	color: #fff;
+	font-weight: bold;
+	text-shadow: 2px 1px 2px #666;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: calc(9px + 1vw);
+	z-index: 2;
+	text-align: center;
 }
 
 @media screen and (max-width:500px) {
@@ -326,6 +366,10 @@ footer{
 		width: 100%;
 	}
 
+	main section h4{
+		font-size: 1.5em;
+	}
+
 	main section article{
 		flex-direction: column;
 		text-align: center;
@@ -335,7 +379,17 @@ footer{
 		max-width: 100%;
 	}
 
+	main>article h5{
+		text-align: center;
+		font-size: 2em;
+		padding-left: 0;
+	}
+
 	main>article div{
 		flex-direction: column;
+	}
+
+	main p{
+		font-size: 1em;
 	}
 }
